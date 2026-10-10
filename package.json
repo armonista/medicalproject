@@ -1,0 +1,38 @@
+{
+  "name": "blindmatch-2.0",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/researcher",
+    "apps/patient",
+    "apps/hospital",
+    "apps/admin",
+    "server",
+    "contracts",
+    "circuits"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev": "concurrently -n API,RESEARCHER,PATIENT,HOSPITAL,ADMIN -c auto \"npm run dev -w server\" \"npm run dev -w apps/researcher\" \"npm run dev -w apps/patient\" \"npm run dev -w apps/hospital\" \"npm run dev -w apps/admin\"",
+    "dev:api": "npm run dev -w server",
+    "dev:researcher": "npm run dev -w apps/researcher",
+    "dev:patient": "npm run dev -w apps/patient",
+    "chain": "npm run node -w contracts",
+    "chain:compile": "npm run compile -w contracts",
+    "chain:deploy": "npm run deploy:local -w contracts",
+    "zk:build": "node circuits/scripts/build.mjs",
+    "test": "npm run test -w contracts",
+    "dev:mobile": "npm run dev",
+    "setup:env": "node scripts/setup-env.mjs",
+    "dev:hospital": "npm run dev -w apps/hospital",
+    "dev:admin": "npm run dev -w apps/admin",
+    "db:init": "npm run db:init -w server",
+    "db:status": "npm run db:status -w server",
+    "db:backup": "npm run db:backup -w server",
+    "regression:static": "node scripts/regression-static.mjs",
+    "regression:api": "node scripts/regression-api.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

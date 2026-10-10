@@ -1,0 +1,9 @@
+{
+  "name": "blindmatch-circuits",
+  "private": true,
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "snarkjs": "^0.7.5",
+    "circom2": "^0.2.23"
+  }
+}

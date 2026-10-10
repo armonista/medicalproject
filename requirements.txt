@@ -1,0 +1,33 @@
+# BlindMatch 2.0 requirements
+# ===========================
+# There are NO required Python packages.
+# `pip install -r requirements.txt` is not needed.
+#
+# Required platform/runtime:
+# - Windows 11 / Linux / macOS
+# - Node.js 22 LTS recommended (Node 24 is also supported by the Windows-safe build used here)
+# - npm
+#
+# Installed by `npm install`:
+# - React + Vite
+# - Express
+# - ethers
+# - Hardhat
+# - snarkjs / circom2 / circomlib / circomlibjs
+# - sql.js (SQLite engine used by the API)
+# - bcryptjs / jsonwebtoken / zod / helmet
+# - html5-qrcode / qrcode
+#
+# Database:
+# - Dedicated SQLite file configured with DATABASE_PATH
+# - Recommended Windows path: C:/BlindMatchData/blindmatch.sqlite
+# - sqlite3 CLI is OPTIONAL for manual inspection only
+#
+# Optional mobile HTTPS testing:
+# - cloudflared
+#
+# Main setup:
+#   npm install
+#   npm run setup:env
+#   npm run db:init
+#   npm run zk:build

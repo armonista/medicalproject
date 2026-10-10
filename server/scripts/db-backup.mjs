@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { dbPath } from '../src/database.js';
+const src = dbPath();
+if (!fs.existsSync(src)) throw new Error(`Database not found: ${src}`);
+const stamp = new Date().toISOString().replace(/[:.]/g,'-');
+const targetDir = path.resolve(process.env.BACKUP_DIR || path.join(path.dirname(src), 'backups'));
+fs.mkdirSync(targetDir,{recursive:true});
+const dest = path.join(targetDir, `blindmatch-${stamp}.sqlite`);
+fs.copyFileSync(src,dest);
+console.log('Backup created:', dest);
